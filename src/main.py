@@ -2,9 +2,9 @@ import pandas as pd
 import requests
 from bs4 import BeautifulSoup
 
-from extract import extrair_tabela
-from convert import converter_pesos
-from convert import converter_datas
+from scripts.extrairDados import extrair_tabela
+from scripts.convercoes import converter_pesos
+from scripts.convercoes import converter_datas
 
 url_santos = 'https://www.portodesantos.com.br/informacoes-operacionais/operacoes-portuarias/navegacao-e-movimento-de-navios/navios-esperados-carga/'
 url_paranagua = 'https://www.appaweb.appa.pr.gov.br/appaweb/pesquisa.aspx?WCI=relLineUpRetroativo'
@@ -77,4 +77,7 @@ df_portos.to_csv('portos.csv', index=False)
 #2 - Padrozinar as coletas de dados de diferentes sites usando um método simples que funcione em todos, (Por exemplo nesse caso, em santos tinha 1 tabela pra exportação e outra para importação,
 #     e o outro tem uma coluna única que junta essas informações)
 #3 - Remover as linhas indesejadas na hora da coleta de informações e não após ja ter coletado a tabela toda ( Como no caso ele puxa o titulo da tabela e o titulo da coluna e após eu removo)
+
+#Resolvido com ajuda de IA
 #4 - Padronização dos pesos, algumas informações estão em Kg, Tons, e no caso de Conteiners em Movs.
+#5 - Padronização das Datas
